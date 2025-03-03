@@ -1,1 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background-image: url('https://torodelacruz.com/wp-content/uploads/2021/01/Colegioboston2.jpg');
+    background-size: 100% auto;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  

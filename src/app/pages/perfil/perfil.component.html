@@ -1,0 +1,9 @@
+
+<div class="card text-center shadow-lg" style="width: 18rem;">
+    <img [src]="imagen" class="card-img-top img-fluid" alt="{{ nombre }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ nombre }}</h5>
+      <button class="btn btn-primary" (click)="votar()" [disabled]="disabled">Votar</button>
+    </div>
+  </div>
+  
