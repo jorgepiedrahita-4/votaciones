@@ -6,6 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  perfiles = [
+    { nombre: "Jorge", imagen: "/assets/imagenes/img.jpeg" },
+    { nombre: "Camila", imagen: "assets/imagenes/img1.jpeg" },
+    { nombre: "Pedro", imagen: "assets/imagenes/img.jpeg" },
+    { nombre: "Lucía", imagen: "assets/imagenes/img.jpeg" },
+    { nombre: "Carlos", imagen: "assets/imagenes/img.jpeg" }
+  ];
   // Controla la vista actual: 'votar' o 'admin'
   view: 'votar' | 'admin' = 'votar';
 

@@ -33,28 +33,19 @@
 </div>
 
 <!-- Vista de votación -->
-<div *ngIf="view === 'votar'">
-  <div class="container mt-5" *ngIf="!voteDone; else thankYouTemplate">
-    <div class="row justify-content-center">
-      <div class="col-md-5 d-flex justify-content-center">
-        <app-perfil
-          nombre="jorge"
-          imagen="https://media.istockphoto.com/id/1394701218/es/foto/concepto-de-b%C3%BAsqueda-de-empleo-encontrar-su-carrera-mujer-mirando-el-sitio-web-en-l%C3%ADnea-por.jpg?s=1024x1024&w=is&k=20&c=NpdzBCC-AVhYkzfLYMef8ZyCC25rSb--fsSlt-ElGrM="
-          [disabled]="voteDone"
-          (voteCast)="handleVote()">
-        </app-perfil>
-      </div>
-      <div class="col-md-5 d-flex justify-content-center">
-        <app-perfil
-          nombre="camila"
-          imagen="https://media.istockphoto.com/id/1317961862/es/foto/retrato-de-la-representante-femenina-de-la-organizaci%C3%B3n-hablando-en-conferencia-de-prensa-en.jpg?s=1024x1024&w=is&k=20&c=1_DmgGDCFgt5zf3bqvf-7s6fJlI6I5Q75T8vFFDxNrs="
-          [disabled]="voteDone"
-          (voteCast)="handleVote()">
-        </app-perfil>
-      </div>
+<div class="container mt-5" *ngIf="!voteDone; else thankYouTemplate">
+  <div class="row">
+    <div class="col-md-4 col-sm-6 col-12 d-flex justify-content-center mb-3" *ngFor="let perfil of perfiles">
+      <app-perfil
+        [nombre]="perfil.nombre"
+        [imagen]="perfil.imagen"
+        [disabled]="voteDone"
+        (voteCast)="handleVote()">
+      </app-perfil>
     </div>
   </div>
 </div>
+
 
 <!-- Overlay de agradecimiento -->
 <ng-template #thankYouTemplate>
