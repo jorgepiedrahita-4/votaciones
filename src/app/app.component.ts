@@ -8,11 +8,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   perfiles = [
-    { nombre: "Jorge", imagen: "/assets/imagenes/img.jpeg" },
-    { nombre: "Camila", imagen: "assets/imagenes/img1.jpeg" },
-    { nombre: "Pedro", imagen: "assets/imagenes/img.jpeg" },
-    { nombre: "Lucía", imagen: "assets/imagenes/img.jpeg" },
-    { nombre: "Carlos", imagen: "assets/imagenes/img.jpeg" }
+    { nombre: "Diego Andres Buitrago - #01", imagen: "assets/imagenes/img2.jpg", votado: false },
+    { nombre: "Maria Isabella Suarez - #02", imagen: "/assets/imagenes/img.jpeg", votado: false },
+    { nombre: "Juan Felipe Valencia - #03", imagen: "assets/imagenes/img3.jpg", votado: false },
+    { nombre: "Jheferson Gutierres - #04", imagen: "assets/imagenes/img1.jpeg", votado: false },
+    { nombre: "Voto en blanco", imagen: "assets/imagenes/Voto-en-blanco.jpg", votado: false }
   ];
   // Controla la vista actual: 'votar' o 'admin'
   view: 'votar' | 'admin' = 'votar';
@@ -56,12 +56,19 @@ export class AppComponent {
 
   // Maneja el estado de voto para mostrar el overlay de agradecimiento (30 segundos)
   voteDone: boolean = false;
-  handleVote() {
-    if (!this.voteDone) {
-      this.voteDone = true;
+  handleVote(perfil: any) {
+    if (!perfil.votado) {
+      perfil.votado = true;
+      this.voteDone = true; // Activa el mensaje de agradecimiento
+  
       setTimeout(() => {
-        this.voteDone = false;
-      }, 1000);
+        perfil.votado = false;
+        this.voteDone = false; // Oculta el mensaje después del tiempo definido
+      }, 30000);
     }
   }
+    get algunVotoHecho(): boolean {
+    return this.perfiles.some(p => p.votado);
+  }
+  
 }

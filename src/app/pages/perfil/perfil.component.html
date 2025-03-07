@@ -1,9 +1,8 @@
-
-<div class="card text-center shadow-lg" style="width: 18rem;">
-  <img [src]="imagen" alt="{{nombre}}" class="card-img-top img-fluid">
-    <div class="card-body">
-      <h5 class="card-title">{{ nombre }}</h5>
-      <button class="btn btn-primary" (click)="votar()" [disabled]="disabled">Votar</button>
-    </div>
+<div class="card custom-card text-center shadow-lg">
+  <img [src]="imagen" class="card-img-top" alt="Imagen de {{ nombre }}">
+  <div class="card-body p-0">
+    <button class="btn custom-btn" (click)="votar()" [disabled]="disabled">
+      {{ nombre }}
+    </button>
   </div>
-  
+</div>

@@ -1,8 +1,18 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light custom-navbar">
   <div class="container">
-    <a class="navbar-brand" (click)="mostrarVotar()">Sistema de Votaciones</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav ml-auto">
+    <!-- Logo + Nombre del Colegio alineados a la izquierda -->
+    <a class="navbar-brand d-flex align-items-center" (click)="mostrarVotar()">
+      <img src="/assets/imagenes/logo.png" alt="Logo Colegio Boston" class="school-logo">
+      <span class="school-brand">Colegio Boston</span>
+    </a>
+
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto"> 
         <li class="nav-item">
           <a class="nav-link" (click)="mostrarVotar()">Votar</a>
         </li>
@@ -14,7 +24,8 @@
   </div>
 </nav>
 
-<!-- Modal de contraseña usando Bootstrap -->
+
+<!-- Modal de contraseña -->
 <div *ngIf="showPasswordModal" class="modal fade show" style="display: block;" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -33,30 +44,31 @@
 </div>
 
 <!-- Vista de votación -->
-<div class="container mt-5" *ngIf="!voteDone; else thankYouTemplate">
-  <div class="row">
-    <div class="col-md-4 col-sm-6 col-12 d-flex justify-content-center mb-3" *ngFor="let perfil of perfiles">
-      <app-perfil
-        [nombre]="perfil.nombre"
-        [imagen]="perfil.imagen"
-        [disabled]="voteDone"
-        (voteCast)="handleVote()">
-      </app-perfil>
+<div *ngIf="view === 'votar'">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4 col-sm-6 col-12 d-flex justify-content-center mb-3" *ngFor="let perfil of perfiles">
+        <app-perfil
+          [nombre]="perfil.nombre"
+          [imagen]="perfil.imagen"
+          [disabled]="perfil.votado"
+          (voteCast)="handleVote(perfil)">
+        </app-perfil>
+      </div>
     </div>
   </div>
 </div>
 
-
-<!-- Overlay de agradecimiento -->
-<ng-template #thankYouTemplate>
-  <div class="overlay">
-    <div class="thank-you-message">
-      Gracias por tu voto
-    </div>
+<!-- Mensaje de agradecimiento -->
+<!-- Mensaje de agradecimiento -->
+<div *ngIf="algunVotoHecho" class="overlay d-flex align-items-center justify-content-center vh-100">
+  <div class="thank-you-message bg-light p-4 rounded shadow">
+    <h2>Gracias por tu voto</h2>
   </div>
-</ng-template>
+</div>
 
 <!-- Vista de administración -->
-<div *ngIf="view === 'admin'">
+<div *ngIf="view === 'admin'" class="container mt-5">
   <app-administracion-votos></app-administracion-votos>
 </div>
+
