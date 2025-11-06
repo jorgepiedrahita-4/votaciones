@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyD_FDWMaupYP_HItME-sfiSigx9idhdkmM",
-    authDomain: "votaciones-31a35.firebaseapp.com",
-    projectId: "votaciones-31a35",
-    storageBucket: "votaciones-31a35.appspot.com",
-    messagingSenderId: "158358723751",
-    appId: "1:158358723751:web:4ca796c545f46138500f82"
-  }
+    apiKey: 'AIzaSyA-PM6xTEfWr2Gk9sk6Gh3BhVYd0nQg520',
+    authDomain: 'votaciones-f41f3.firebaseapp.com',
+    projectId: 'votaciones-f41f3',
+    storageBucket: 'votaciones-f41f3.firebasestorage.app',
+    messagingSenderId: '833977056455',
+    appId: '1:833977056455:web:d1f57a730672f32a04d2e2',
+  },
 };
 
 /*

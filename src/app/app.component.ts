@@ -64,7 +64,7 @@ export class AppComponent {
       setTimeout(() => {
         perfil.votado = false;
         this.voteDone = false; // Oculta el mensaje después del tiempo definido
-      }, 30000);
+      }, 1000);
     }
   }
     get algunVotoHecho(): boolean {
